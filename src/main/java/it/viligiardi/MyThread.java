@@ -10,11 +10,13 @@ public class MyThread extends Thread{
     //attributes
     private Socket s;
     private ArrayList<String> list;
+    //private ArrayList<String> lName;
 
     //methods and constructions
     public MyThread(Socket s, ArrayList<String> l){
         this.s = s;
         this.list = l;
+        //this.lName= name;
     }
 
     @Override
@@ -29,6 +31,20 @@ public class MyThread extends Thread{
                 System.out.println("Client invia: " + stringaRicevuta);
     
                 switch (stringaRicevuta) {
+                    // case "u":
+                    //     out.writeBytes("Inserisci un username identificativo per il tuo Client:");
+                    //     System.out.println("Server invia: richiesta username" + "\n");
+                    //     String richiesta = in.readLine();
+                    //     if (searchName(richiesta)) {
+                    //         out.writeBytes("FALLITA" + "\n");
+                    //         System.out.println("Server invia: FALLITA");
+                    //     } else {
+                    //         out.writeBytes("DISPONIBILE" + "\n");
+                    //         System.out.println("Server invia: DISPONIBILE");
+                    //         lName.add(richiesta);
+                    //     }
+                        
+                    // break;
                     //funzioni del server per l'invio della lista 
                     case "?":
                         for (int i = 0; i < list.size(); i++) {
@@ -38,7 +54,7 @@ public class MyThread extends Thread{
                         }
                         System.out.println("Server invia: @");
                         out.writeBytes("@" + "\n");
-                        break;
+                    break;
                     
                     //funzioni del server per la disconessione del client
                     case "!":
@@ -88,5 +104,12 @@ public class MyThread extends Thread{
         return false;
     }
 
-
+    // public boolean searchName(String s){
+    //     for (int i = 0; i < lName.size(); i++) {
+    //             if (list.get(i).equals(s)) {
+    //                 return true;
+    //             }
+    //     }
+    //     return false;
+    // }
 }

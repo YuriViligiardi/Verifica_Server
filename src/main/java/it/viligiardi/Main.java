@@ -9,6 +9,7 @@ public class Main {
     public static void main(String[] args) throws IOException{
         ServerSocket ss1 = new ServerSocket(3000);
         System.out.println("Il server è in ascolto");
+        //ArrayList<String> name = new ArrayList<>();
 
         do {
             Socket s1 = ss1.accept();
